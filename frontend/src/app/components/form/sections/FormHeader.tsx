@@ -1,15 +1,17 @@
+import Image from "next/image";
 import React from "react";
+import logo from "@/media/logo.png";
 
 const FormHeader = () => {
     return (
         <div className="bg-orange-500 text-white px-8 py-6 flex justify-between rounded-t-lg">
             <div className="flex gap-x-2 items-center">
-                <p className="font-bold text-orange-500 bg-white size-12 flex items-center justify-center rounded-full">
-                    GT
-                </p>
+                <div className="font-bold text-orange-500 bg-white size-16 flex items-center justify-center rounded-full">
+                    <Image src={logo} alt="GENUS Tours & Travels" />
+                </div>
                 <div className="flex flex-col justify-center">
                     <p className="font-semibold text-xl">
-                        Genus Tours & Travels
+                        GENUS Tours & Travels
                     </p>
                     <p className="font-light text-sm">Your Travel Partner</p>
                 </div>

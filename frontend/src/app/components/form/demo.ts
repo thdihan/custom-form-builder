@@ -22,7 +22,7 @@ export const demoForm = {
                     label: "Website",
                     fieldName: "Website", // used as key in responses
                     type: "text",
-                    required: true,
+                    required: false,
                     order: 3,
                 },
                 {
@@ -68,10 +68,6 @@ export const demoForm = {
                         {
                             label: "Express check-in/check-out",
                             value: "Express check-in/check-out",
-                        },
-                        {
-                            label: "Room service",
-                            value: "Room service",
                         },
                         {
                             label: "Elevator",
@@ -269,11 +265,11 @@ export const demoForm = {
                             size: "10%",
                         },
                         {
-                            name: "Published Rate (excl. VAT)",
+                            name: "Published Rate (Including VAT, TAXES and all charges.)",
                             size: "20%",
                         },
                         {
-                            name: "Agency Rate (excl. VAT)",
+                            name: "Agency Rate (Including VAT, TAXES and all charges.)",
                             size: "20%",
                         },
                     ],
