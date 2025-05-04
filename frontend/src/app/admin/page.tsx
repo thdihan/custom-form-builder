@@ -3,6 +3,11 @@
 import axios from "axios";
 import React from "react";
 import Papa from "papaparse";
+import { formatResponseToDownloadable } from "@/utils/formatResponse";
+import {
+    downloadHotelsAsCSV,
+    generateHotelPDF,
+} from "@/utils/downloadResponse";
 
 function pages() {
     const handleDownload = async () => {
@@ -17,27 +22,31 @@ function pages() {
             console.log("Data downloaded successfully", jsonData?.data);
 
             // Step 2: Extract only the 'responses' field
-            const extractedData = jsonData?.data?.map(
-                (item: any) => item.responses
+            const extractedData = jsonData?.data?.map((item: any) =>
+                formatResponseToDownloadable(item.responses)
             );
 
-            extractedData.roomType = JSON.stringify(extractedData.roomType);
+            console.log("Extracted Data", extractedData);
 
-            // Step 3: Convert to CSV
-            const csv = Papa.unparse(extractedData);
+            downloadHotelsAsCSV(extractedData);
+            generateHotelPDF(extractedData);
+            // extractedData.roomType = JSON.stringify(extractedData.roomType);
 
-            // Step 4: Trigger download
-            const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-            const url = URL.createObjectURL(blob);
+            // // Step 3: Convert to CSV
+            // const csv = Papa.unparse(extractedData);
 
-            const link = document.createElement("a");
-            link.href = url;
-            link.setAttribute("download", "responses.csv");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
+            // // Step 4: Trigger download
+            // const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+            // const url = URL.createObjectURL(blob);
 
-            URL.revokeObjectURL(url);
+            // const link = document.createElement("a");
+            // link.href = url;
+            // link.setAttribute("download", "responses.csv");
+            // document.body.appendChild(link);
+            // link.click();
+            // document.body.removeChild(link);
+
+            // URL.revokeObjectURL(url);
         } catch (error) {
             console.error("Error in downloading data", error);
         }
