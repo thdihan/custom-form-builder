@@ -2,11 +2,15 @@ import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { ResponseService } from './response.service';
+import { sendMail } from '../../utils/sendMail';
 
 const createResponse = catchAsync(async (req, res) => {
     const result = await ResponseService.createResponseIntoDB({
         responses: req.body,
     });
+    // const result = '';
+    console.log(req.body);
+    sendMail(req.body);
 
     sendResponse(res, {
         success: true,

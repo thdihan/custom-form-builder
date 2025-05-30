@@ -1,4 +1,5 @@
-// set response type to key pair => value
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 type TResponse = {
     [key: string]: any;
 };

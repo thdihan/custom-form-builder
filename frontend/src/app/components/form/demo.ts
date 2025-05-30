@@ -1,12 +1,12 @@
 export const demoForm = {
     groups: [
         {
-            name: "Hotel Details",
+            name: "Property Details",
             order: 1,
             fields: [
                 {
-                    label: "Hotel Name",
-                    fieldName: "Hotel Name", // used as key in responses
+                    label: "Property Name",
+                    fieldName: "Property Name", // used as key in responses
                     type: "text",
                     required: true,
                     order: 1,
@@ -32,10 +32,39 @@ export const demoForm = {
                     required: true,
                     order: 4,
                 },
+                {
+                    label: "Property Rating",
+                    fieldName: "Property Rating", // used as key in responses
+                    type: "checkbox",
+                    required: true,
+                    order: 5,
+                    options: [
+                        {
+                            label: "2 Star",
+                            value: "2 Star",
+                        },
+                        {
+                            label: "3 Star",
+                            value: "3 Star",
+                        },
+                        {
+                            label: "4 Star",
+                            value: "4 Star",
+                        },
+                        {
+                            label: "5 Star",
+                            value: "5 Star",
+                        },
+                        {
+                            label: "7 Star",
+                            value: "7 Star",
+                        },
+                    ],
+                },
             ],
         },
         {
-            name: "Hotel Facilities",
+            name: "Property Facilities",
             order: 2,
             fields: [
                 {
@@ -241,8 +270,16 @@ export const demoForm = {
             order: 3,
             fields: [
                 {
-                    label: "Hotel Name",
-                    fieldName: "Hotel Name", // used as key in responses
+                    label: "Supported Currency",
+                    fieldName: "Supported Currency", // used as key in responses
+                    type: "text",
+                    required: true,
+                    order: 1,
+                    placeholder: "Currency ex: BDT, USD, AED etc.",
+                },
+                {
+                    label: "Property Name",
+                    fieldName: "Property Name", // used as key in responses
                     type: "table",
                     required: true,
 
@@ -367,7 +404,7 @@ export const demoForm = {
             ],
         },
         {
-            name: "Hotel Policies",
+            name: "Property Policies",
             order: 5,
             fields: [
                 {
@@ -386,10 +423,20 @@ export const demoForm = {
                 },
                 {
                     label: "Cancellation Policy",
-                    fieldName: "Cancellation Policy ", // used as key in responses
+                    fieldName: "Cancellation Policy", // used as key in responses
                     type: "text",
                     required: true,
                     order: 4,
+                    placeholder: "Cancellation Policy",
+                },
+
+                {
+                    label: "Other Policies",
+                    fieldName: "Other Policies", // used as key in responses
+                    type: "text",
+                    required: true,
+                    order: 4,
+                    placeholder: "Other Policies",
                 },
 
                 {

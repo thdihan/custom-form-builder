@@ -11,6 +11,7 @@ type Tfields = {
     type: string;
     required: boolean;
     order: number;
+    placeholder?: string;
     options?: {
         label: string;
         value: string;
@@ -310,13 +311,14 @@ const FormGroup = ({ group, roomType, setRoomType }: props) => {
                                 ))}
                             </div>
                         ) : (
-                            <div className="mt-6 grid grid-cols-2 gap-6">
+                            <div className="mb-6 grid grid-cols-2 gap-6">
                                 {group.fields.map((field, index) => (
                                     <TextField
                                         key={index}
                                         label={field.label}
                                         name={field.fieldName}
                                         required={field.required}
+                                        placeholder={field.placeholder}
                                     />
                                 ))}
                             </div>

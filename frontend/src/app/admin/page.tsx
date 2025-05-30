@@ -2,12 +2,8 @@
 "use client";
 import axios from "axios";
 import React from "react";
-import Papa from "papaparse";
 import { formatResponseToDownloadable } from "@/utils/formatResponse";
-import {
-    downloadHotelsAsCSV,
-    generateHotelPDF,
-} from "@/utils/downloadResponse";
+import { generateHotelsPDFZip } from "@/utils/downloadResponse";
 
 function pages() {
     const handleDownload = async () => {
@@ -28,8 +24,8 @@ function pages() {
 
             console.log("Extracted Data", extractedData);
 
-            downloadHotelsAsCSV(extractedData);
-            generateHotelPDF(extractedData);
+            generateHotelsPDFZip(extractedData);
+            // generateHotelPDF(extractedData);
             // extractedData.roomType = JSON.stringify(extractedData.roomType);
 
             // // Step 3: Convert to CSV

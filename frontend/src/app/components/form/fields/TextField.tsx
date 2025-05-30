@@ -5,9 +5,10 @@ type Props = {
     label: string;
     name: string;
     required?: boolean;
+    placeholder?: string;
 };
 
-function TextField({ label, name, required }: Props) {
+function TextField({ label, name, required, placeholder }: Props) {
     return (
         <div>
             <p className="font-thin mb-2 text-sm">
@@ -19,7 +20,7 @@ function TextField({ label, name, required }: Props) {
                 name={name}
                 id=""
                 className="bg-white p-2 w-full outline outline-[#e7e5e4] rounded-md"
-                placeholder="Enter your text here"
+                placeholder={placeholder || "Enter your text here"}
             />
         </div>
     );
